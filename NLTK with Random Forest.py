@@ -50,7 +50,7 @@ model.fit(X_train_vectors, y_train)
 
 # Continue with the evaluation or other tasks
 
-new_description = pd.read_excel('Input.xlsx.xlsx')
+new_description = pd.read_excel('Input.xlsx')
 new_description = new_description.dropna()
 id = new_description['DocumentId']
 segment = new_description['SegmentName']
