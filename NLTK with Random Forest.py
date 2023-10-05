@@ -13,7 +13,7 @@ nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('wordnet')
 
-dataset = pd.read_excel('C:\\Users\\ptaywad\\Downloads\\Machine Learning\\NLP.xlsx')
+dataset = pd.read_excel('NLP.xlsx')
 
 dataset.dropna(subset=['description'], inplace=True)
 dataset.dropna(subset=['industry'], inplace=True)
@@ -50,7 +50,7 @@ model.fit(X_train_vectors, y_train)
 
 # Continue with the evaluation or other tasks
 
-new_description = pd.read_excel('C:\\Users\\ptaywad\\Downloads\\Classifier\\Input.xlsx.xlsx')
+new_description = pd.read_excel('Input.xlsx.xlsx')
 new_description = new_description.dropna()
 id = new_description['DocumentId']
 segment = new_description['SegmentName']
@@ -60,4 +60,4 @@ new_description_vector = vectorizer.transform(new_description)
 predicted_industry = model.predict(new_description_vector)
 predictions_df = pd.DataFrame({'DocumentId': id, 'SegmentName' : segment, 'Description': new_description, 'Predicted': predicted_industry})
 predictions_df['Validation'] = predictions_df['DocumentId'].astype(str) + predictions_df['SegmentName']
-predictions_df.to_excel("C:\\Users\\ptaywad\\Downloads\\Classifier\\Prediction.xlsx", index=False)
+predictions_df.to_excel("Prediction.xlsx", index=False)
